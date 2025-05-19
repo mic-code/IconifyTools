@@ -1,0 +1,30 @@
+{
+	"editor.formatOnSaveMode": "modifications",
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit"
+	},
+	// "editor.formatOnSave": true,
+	"eslint.validate": [
+		"javascript",
+		"typescript"
+	],
+	"eslint.format.enable": true,
+	"actionButtons": {
+        "commands": [
+			 {
+				 "name": "$(symbol-function) Install",
+				 "color": "white",
+				 "singleInstance": true,
+				 "command": "npm install"
+			 },
+			 {
+				 "name": "$(symbol-function) Save Icons",
+				 "color": "white",
+				 "singleInstance": true,
+				 "command": "npm run save:icons"
+			 }],
+        "defaultColor": "white",
+        "reloadButton": "↻",
+        "loadNpmCommands": false
+	}
+}

@@ -1,0 +1,16 @@
+{
+  "name": "iconify-tool",
+  "version": "1.0.0",
+  "scripts": {
+    "install": "npm install",
+    "save:icons": "tsx src/plugins/iconify/save-icons.ts"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@iconify/json": "latest",
+    "@iconify/tools": "latest",
+    "@iconify/utils": "latest",
+    "@iconify/vue": "latest"
+  }
+}
