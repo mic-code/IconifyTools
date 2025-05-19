@@ -1,11 +1,11 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { locate } from "@iconify/json";
 import { IconSet } from "@iconify/tools";
 import { IconifyJSON } from "@iconify/types";
 
 (async function ()
 {
-	const icons = ["ri"];
+	const icons = ["line-md"];
 
 	icons.forEach(async (prefix)=>
 	{
@@ -14,15 +14,15 @@ import { IconifyJSON } from "@iconify/types";
 
 		const iconJson = JSON.parse(await readFile(filename, "utf8")) as IconifyJSON;
 		const iconSet = new IconSet(iconJson);
-		await iconSet.forEach(async (name) => {
+		await iconSet.forEach(async (name) => 
+		{
 			const svg = iconSet.toString(name);
-			if (!svg) {
+			if (!svg)
 				return;
-			}
 
-			// Save to file
-			await writeFile(`output/${name}.svg`, svg, "utf8");
-			// console.log(`Saved output/${name}.svg (${svg.length} bytes)`);
+			const directory = `output/${prefix}`;
+			await mkdir(directory, { recursive: true });
+			await writeFile(`${directory}/${name}.svg`, svg, "utf8");
 		});
 	});
 }
